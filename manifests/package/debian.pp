@@ -1,11 +1,11 @@
-class owncloud::package::debian() {
+class owncloud::package::debian() inherits owncloud::params {
 
   apt::key { 'owncloud':
-    key        => 'BA684223',
-    key_source => 'http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key',
+    key        => "$key",
+    key_source => "$key_source",
   } ->
   apt::source { 'owncloud':
-    location    => 'http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/',
+    location    => "$location",
     repos       => '',
     release     => '/',
     include_src => false,
